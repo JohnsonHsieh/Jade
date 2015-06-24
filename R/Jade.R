@@ -112,17 +112,17 @@ DetInc <- function(y, zero=FALSE){
   Q2 <- sum(y==2)
   Q3 <- sum(y==3)
   
-  if(f1>0 & f2>0){
+  if(Q1>0 & Q2>0){
     A1 <- Q1 / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2*Q2))
-  }else if(f1>1 & f2==0){
+  }else if(Q1>1 & Q2==0){
     A1 <- (Q1-1) / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2))
   }else{
     return(y/nT)
   }
   
-  if(f2>0 & f3>0){
+  if(Q2>0 & Q3>0){
     A2 <- Q2 / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3*Q3))^2
-  }else if(f2>1 & f3==0){
+  }else if(Q2>1 & Q3==0){
     A2 <- (Q2-1) / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3))^2
   }else{
     A2 <- 0
@@ -164,17 +164,17 @@ UndInc <- function(y){
     return(NULL)
   } 
   
-  if(f1>0 & f2>0){
+  if(Q1>0 & Q2>0){
     A1 <- Q1 / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2*Q2))
-  }else if(f1>1 & f2==0){
+  }else if(Q1>1 & Q2==0){
     A1 <- (Q1-1) / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2))
   }else{
     return(NULL)
   }
   
-  if(f2>0 & f3>0){
+  if(Q2>0 & Q3>0){
     A2 <- Q2 / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3*Q3))^2
-  }else if(f2>1 & f3==0){
+  }else if(Q2>1 & Q3==0){
     A2 <- (Q2-1) / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3))^2
   }else{
     A2 <- 0
