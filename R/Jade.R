@@ -14,12 +14,22 @@ DetAbu <- function(x, zero=FALSE){
   f1 <- sum(x==1)
   f2 <- sum(x==2)
   f3 <- sum(x==3)
-  if(f2==0){
-    f1 <- max(f1 - 1, 0)
-    f2 <- 1
+  
+  if(f1>0 & f2>0){
+    A1 <- f1 / n * ((n-1)*f1 / ((n-1)*f1 + 2*f2))
+  }else if(f1>1 & f2==0){
+    A1 <- (f1-1) / n * ((n-1)*f1 / ((n-1)*f1 + 2))
+  }else{
+    return(x/n)
   }
-  A1 <- f1 / n * ((n-1)*f1 / ((n-1)*f1 + 2*max(f2,1)))
-  A2 <- f2 / choose(n, 2) * ((n-2)*f2 / ((n-2)*f2 + 3*max(f3,1)))^2
+
+  if(f2>0 & f3>0){
+    A2 <- f2 / choose(n, 2) * ((n-2)*f2 / ((n-2)*f2 + 3*f3))^2  
+  }else if(f2>1 & f3==0){
+    A2 <- (f2-1) / choose(n, 2) * ((n-2)*f2 / ((n-2)*f2 + 3))^2  
+  }else{
+    A2 <- 0
+  }
   
   if(zero==FALSE) x <- x[x>0]
   q.solve <- function(q){
@@ -53,13 +63,25 @@ UndAbu <- function(x){
   if(f0.hat < 0.5){
     return(NULL)
   } 
-  if(f2==0){
-    f1 <- max(f1 - 1, 0)
-    f2 <- 1
+ 
+  if(f1>0 & f2>0){
+    A1 <- f1 / n * ((n-1)*f1 / ((n-1)*f1 + 2*f2))    
+  }else if(f1>1 & f2==0){
+      A1 <- (f1-1) / n * ((n-1)*f1 / ((n-1)*f1 + 2))
+  }else{
+    return(NULL)
   }
-  A1 <- f1 / n * ((n-1)*f1 / ((n-1)*f1 + 2*max(f2,1)))
-  A2 <- f2 / choose(n, 2) * ((n-2)*f2 / ((n-2)*f2 + 3*max(f3,1)))^2
-  R <- A1^2/A2
+  
+  if(f2>0 & f3>0){
+    A2 <- f2 / choose(n, 2) * ((n-2)*f2 / ((n-2)*f2 + 3*f3))^2  
+  }else if(f2>1 & f3==0){
+    A2 <- (f2-1) / choose(n, 2) * ((n-2)*f2 / ((n-2)*f2 + 3))^2  
+  }else{
+    A2 <- 0
+  }
+
+  
+  R <- ifelse(A2>0, A1^2/A2, 1)
   j <- 1:f0.hat
   f.solve <- function(x){ 
     out <- sum(x^j)^2 / sum((x^j)^2) - R
@@ -89,12 +111,23 @@ DetInc <- function(y, zero=FALSE){
   Q1 <- sum(y==1)
   Q2 <- sum(y==2)
   Q3 <- sum(y==3)
-  if(Q2==0){
-    Q1 <- max(Q1 - 1, 0)
-    Q2 <- 1
+  
+  if(f1>0 & f2>0){
+    A1 <- Q1 / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2*Q2))
+  }else if(f1>1 & f2==0){
+    A1 <- (Q1-1) / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2))
+  }else{
+    return(y/nT)
   }
-  A1 <- Q1 / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2*max(Q2,1)))
-  A2 <- Q2 / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3*max(Q3,1)))^2
+  
+  if(f2>0 & f3>0){
+    A2 <- Q2 / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3*Q3))^2
+  }else if(f2>1 & f3==0){
+    A2 <- (Q2-1) / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3))^2
+  }else{
+    A2 <- 0
+  }
+  
   
   if(zero==FALSE) y <- y[y>0]
   q.solve <- function(q){
@@ -130,13 +163,24 @@ UndInc <- function(y){
   if(Q0.hat < 0.5){
     return(NULL)
   } 
-  if(Q2==0){
-    Q1 <- max(Q1 - 1, 0)
-    Q2 <- 1
+  
+  if(f1>0 & f2>0){
+    A1 <- Q1 / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2*Q2))
+  }else if(f1>1 & f2==0){
+    A1 <- (Q1-1) / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2))
+  }else{
+    return(NULL)
   }
-  A1 <- Q1 / nT * ((nT-1)*Q1 / ((nT-1)*Q1 + 2*max(Q2,1)))
-  A2 <- Q2 / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3*max(Q3,1)))^2
-  R <- A1^2/A2
+  
+  if(f2>0 & f3>0){
+    A2 <- Q2 / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3*Q3))^2
+  }else if(f2>1 & f3==0){
+    A2 <- (Q2-1) / choose(nT, 2) * ((nT-2)*Q2 / ((nT-2)*Q2 + 3))^2
+  }else{
+    A2 <- 0
+  }
+
+  R <- ifelse(A2>0, A1^2/A2, 1)
   j <- 1:Q0.hat
   f.solve <- function(x){ 
     out <- sum(x^j)^2 / sum((x^j)^2) - R
@@ -170,12 +214,19 @@ SpecDist <- function(x, datatype="abundance"){
   datatype <- match.arg(datatype, TYPE)
   
   if(datatype=="abundance"){  
-    out <- rbind(data.frame("probability"=DetAbu(x, zero=TRUE), "method"="detected"),
-                 data.frame("probability"=UndAbu(x), "method"="undetected"))
+    obs <- DetAbu(x, zero=FALSE)
+    und <- UndAbu(x)
+    
   }else if(datatype=="incidence"){
-    out <- rbind(data.frame("probability"=DetInc(x, zero=TRUE), "method"="detected"),
-                 data.frame("probability"=UndInc(x), "method"="undetected"))
+    obs <- DetInc(x, zero=FALSE)
+    und <- UndInc(x)
   }
+  if(is.null(und)){
+    out <- data.frame("probability"=obs, "method"="detected")
+  }else{
+    out <-  rbind(data.frame("probability"=obs, "method"="detected"),
+                  data.frame("probability"=und, "method"="undetected"))
+  }       
   out[sort(-out[,1]),]
 }
 
