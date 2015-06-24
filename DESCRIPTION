@@ -1,9 +1,14 @@
-Package: Jade
+Package: JADE
 Type: Package
-Title: Jade
-Version: 1.0
-Date: 2015-06-16
-Author: T. C. Hsieh
-Maintainer: T. C. Hsieh <euler96@gamil.com>
-Description:Jade
-License: GPL-3
+Title: Joint species-rank Abundance Distribution/Estimation
+Version: 0.0.1
+Date: 2014-10-15
+Authors@R: c(person("T. C.", "Hsieh", role = c("aut", "cre", "cph"), email =
+    "euler96@gmail.com"), person("Anne", "Chao", role = "ths", email =
+    "chao@stat.nthu.edu.tws"))
+Description: A estimation package of species-rank abundance distribution for
+    both individual-based (abundance) data and sample-based incidence) data
+License: GPL (>= 3)
+URL: http://chao.stat.nthu.edu.tw/blog/software-download/
+Author: T. C. Hsieh, and Anne Chao
+Maintainer: T. C. Hsieh <euler96@gmail.com>
