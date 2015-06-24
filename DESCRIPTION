@@ -1,0 +1,9 @@
+Package: Jade
+Type: Package
+Title: Jade
+Version: 1.0
+Date: 2015-06-16
+Author: T. C. Hsieh
+Maintainer: T. C. Hsieh <euler96@gamil.com>
+Description:Jade
+License: GPL-3
