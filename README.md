@@ -22,9 +22,7 @@ If you use Jade to obtain results for publication, you should cite the
 relevant papers (Chao et al. 2014) along with the following reference
 for Jade R package:
 
-T. C. Hsieh and Anne Chao (2014). Jade: Joint species-rank Abundance
-Distribution/Estimation. R package version 0.0.1.
-<http://chao.stat.nthu.edu.tw/blog/software-download/>
+> T. C. Hsieh and Anne Chao (2014). Jade: Joint species-rank Abundance Distribution/Estimation. R package version 0.0.1. <http://chao.stat.nthu.edu.tw/blog/software-download/>
 
 =======
 ### Software needed to run the development version
