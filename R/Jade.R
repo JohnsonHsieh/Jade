@@ -227,7 +227,9 @@ SpecDist <- function(x, datatype="abundance"){
     out <-  rbind(data.frame("probability"=obs, "method"="detected"),
                   data.frame("probability"=und, "method"="undetected"))
   }       
-  out[sort(-out[,1]),]
+  out <- out[order(-out$probability),]
+  out$rank <- 1:nrow(out)
+  out[,c(3,2,1)]
 }
 
 
