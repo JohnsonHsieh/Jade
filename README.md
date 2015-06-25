@@ -26,6 +26,7 @@ T. C. Hsieh and Anne Chao (2014). Jade: Joint species-rank Abundance
 Distribution/Estimation. R package version 0.0.1.
 <http://chao.stat.nthu.edu.tw/blog/software-download/>
 
+=======
 ### Software needed to run the development version
 
 -   Required: [R](http://cran.rstudio.com/)
