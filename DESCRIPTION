@@ -3,6 +3,7 @@ Type: Package
 Title: Joint species-rank Abundance Distribution/Estimation
 Version: 0.0.1
 Date: 2014-10-15
+Author: T. C. Hsieh, and Anne Chao
 Authors@R: c(person("T. C.", "Hsieh", role = c("aut", "cre", "cph"), email =
     "euler96@gmail.com"), person("Anne", "Chao", role = "ths", email =
     "chao@stat.nthu.edu.tw"))
@@ -10,5 +11,4 @@ Description: A estimation package of species-rank abundance distribution for
     both individual-based (abundance) data and sample-based incidence) data
 License: GPL (>= 3)
 URL: http://chao.stat.nthu.edu.tw/blog/software-download/
-Author: T. C. Hsieh, and Anne Chao
 Maintainer: T. C. Hsieh <euler96@gmail.com>

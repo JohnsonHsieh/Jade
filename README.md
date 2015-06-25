@@ -12,19 +12,21 @@ Institute of Statistics, National Tsing Hua University, Hsin-Chu, Taiwan
 30043
 </h4>
 The program Jade is a R source code to compute the Joint species-rank
-Abundance Distribution/Estimation present by Chao et al. (2015). This
+Abundance Distribution/Estimation present by Chao et al. (2014). This
 program provieds species rank distribution (RAD) by separately adjusting
 the sample relative abundances for the set of species detected in the
 sample and estimating the relative abundances for the set of species
 undetected in the sample but inferred to be present in the assemblage.
 
 If you use Jade to obtain results for publication, you should cite the
-relevant papers (Chao et al. 2014) along with the following reference
-for Jade R package:
+relevant papers ([Chao et al.
+2014](http://www.esajournals.org/doi/10.1890/14-0550.1)) along with the
+following reference for Jade R package:
 
-> T. C. Hsieh and Anne Chao (2014). Jade: Joint species-rank Abundance Distribution/Estimation. R package version 0.0.1. <http://chao.stat.nthu.edu.tw/blog/software-download/>
+> T. C. Hsieh and Anne Chao (2014). Jade: Joint species-rank Abundance
+> Distribution/Estimation. R package version 0.0.1.
+> <http://chao.stat.nthu.edu.tw/blog/software-download/>
 
-=======
 ### Software needed to run the development version
 
 -   Required: [R](http://cran.rstudio.com/)
